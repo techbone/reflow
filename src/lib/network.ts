@@ -140,20 +140,15 @@ export function resolveNetwork(env: Record<string, string | undefined>): Network
  * to this one place and does not propagate to callers.
  */
 function _readViteEnv(): Record<string, string | undefined> {
-  // import.meta.env is defined in Vite's client types (vite/client).
-  // The server tsconfig does not include those types, so TypeScript would
-  // flag the property access.  We use a property-existence check that
-  // satisfies strict TypeScript without an `any` cast by declaring a local
-  // interface that matches the Vite shape.
-  interface ImportMetaWithEnv {
-    readonly env: Record<string, string | undefined>
-  }
-  // Safe: at runtime in Vite/vitest this is always defined.
-  // In a plain Node process (server startup) it is missing, so we return {}.
-  if ('env' in (import.meta as object)) {
-    return (import.meta as unknown as ImportMetaWithEnv).env
-  }
-  return {}
+  // Cast through unknown so server/tsconfig.json (no Vite types) accepts this.
+  // IMPORTANT: do NOT guard with `'env' in import.meta` or any typeof check on
+  // import.meta.  Vite statically replaces `import.meta.env` at build time; a
+  // runtime guard prevents that replacement, leaving the expression unevaluated
+  // in the production bundle so the env reads as {} and resolveNetwork always
+  // falls back to testnet.  In a plain Node process (server) import.meta.env is
+  // undefined; the `?? {}` handles that case.
+  const env = (import.meta as unknown as { env?: Record<string, string | undefined> }).env
+  return env ?? {}
 }
 
 const _viteEnv = _readViteEnv()

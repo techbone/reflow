@@ -14,10 +14,11 @@ import { registerChain } from './tracing'
 import { resolveNetwork } from './lib/network'
 
 // Resolve at module load — reads the same env key as the rest of the app.
+// Cast through unknown so this compiles under server/tsconfig.json (no Vite
+// types).  Vite statically replaces import.meta.env at build time; do NOT
+// guard with typeof/in checks — that would prevent the static replacement.
 const _net = resolveNetwork(
-  typeof import.meta !== 'undefined' && import.meta.env
-    ? (import.meta.env)
-    : {}
+  (import.meta as unknown as { env?: Record<string, string | undefined> }).env ?? {}
 )
 const activeArcChain = _net.isMainnet ? arc : arcTestnet
 

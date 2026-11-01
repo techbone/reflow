@@ -1,14 +1,14 @@
 # Reflow M2/M3 — Application Status
 
-## Actual check results (M3 defect fix — manifest path routing)
+## Actual check results (M3 defect fix — production-build env resolution)
 
 | Check | Result |
 |-------|--------|
 | `oxlint` (type-aware + standard) | 0 errors, 1 warning (acceptable pre-existing) |
 | `tsc --noEmit` (client) | 0 errors |
 | `tsc --noEmit --project server/tsconfig.json` | 0 errors |
-| `bun run test:client` (vitest) | **419/419 pass** (80 txLifecycle + 75 TxOrchestrator + 28 adminPool + 7 cssVarAudit + 21 statTiles + 52 deliveryClient + 76 network + 57 m3b + 23 networkCopy) |
-| `bun run test:server` (vitest, Node env) | **163/163 pass** (20 chainAdapter + 60 delivery + 22 validateConfig + 31 staticServing + 30 assertBuildEnv) |
+| `bun run test:client` (vitest) | **419/419 pass** (unchanged) |
+| `bun run test:server` (vitest, Node env) | **171/171 pass** (163 previous + 8 viteBuild: 4 VB_UNIT + 4 VB_BUILD) |
 | `forge test -v` | **86/86 pass** |
 | `bun run build` (vite build) | production build succeeds (15 s) |
 | `docker build` / `fly deploy` | NOT performed — see `docs/DEPLOY.md` |

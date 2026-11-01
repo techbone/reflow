@@ -33,12 +33,12 @@ The constructor validates that the token is a contract with `decimals() == 6`. M
 
 Application UI complete. Contract deployed to Arc Testnet. Pools 1 (test placeholder) and 2 (real report pool) exist on the deployed contract. Pool 2 was purchased and the unlock flow exercised live by wallet `0xe3e7...959a`; downloaded file keccak256 matches `ARTIFACT_HASH` on-chain.
 
-**Actual checks (M3 defect fix — manifest path routing):**
+**Actual checks (M3 defect fix — production-build env resolution):**
 - `oxlint`: 0 errors, 1 warning (pre-existing)
 - `tsc --noEmit` (client): 0 errors
 - `tsc --noEmit --project server/tsconfig.json` (`typecheck:server`): 0 errors
-- `bun run test:client` (vitest): **419/419 pass** (80 txLifecycle + 75 TxOrchestrator + 28 adminPool + 7 cssVarAudit + 21 statTiles + 52 deliveryClient + 76 network + 57 m3b + 23 networkCopy)
-- `bun run test:server` (vitest, Node): **163/163 pass** (unchanged)
+- `bun run test:client` (vitest): **419/419 pass** (unchanged)
+- `bun run test:server` (vitest, Node): **171/171 pass** (163 previous + 8 new viteBuild tests: 4 VB_UNIT + 4 VB_BUILD)
 - `forge test -v`: **86/86 pass** (unchanged)
 - `bun run build` (vite build): production build succeeds
 
