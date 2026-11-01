@@ -1,0 +1,43 @@
+{
+  "schema": "reflow.resource-manifest/1",
+  "title": "Arc Testnet activity report",
+  "version": "1.0.0",
+  "description": "Counts and sums of public Arc Testnet activity over a fixed block range: transactions, senders, contract creations, gas, USDC transfers, hourly series and most-used contracts. Facts only; no success rates, attribution or quality claims.",
+  "source": {
+    "network": "Arc Testnet",
+    "chainId": 5042002,
+    "fromBlock": 68100000,
+    "toBlock": 68199999,
+    "blockCount": 100000,
+    "fromUtc": "2026-10-20T01:06:55Z",
+    "toUtc": "2026-10-20T15:15:35Z"
+  },
+  "generatedAt": "2026-10-21T10:59:43Z",
+  "artifact": {
+    "filename": "arc-activity-report-v1.json",
+    "bytes": 7130,
+    "keccak256": "0x9f133dfc1902678ccadff6a874ab99e22e786de98e6c0464ddc6a0c872858d68",
+    "schema": "reflow.arc-activity-report/1",
+    "delivery": "private; released only to pool members by the delivery service"
+  },
+  "terms": {
+    "filename": "terms.md",
+    "keccak256": "0xcc64d34b5c37803e0c410295d41c5bf83139701d5bb256b8900bcb0c3d146b50",
+    "summary": "Cohort licence: members may use the file for personal or internal review and quote short excerpts with attribution; no redistribution or resale. Testnet demonstration; no warranty; independent of Circle and Arc."
+  },
+  "generator": {
+    "script": "report/generate_report.py",
+    "scriptSha256": "ff0f6c6d53339529dd95efbbb5166943cb95c1bf1ac05b870e27d41095c1eabd",
+    "note": "Open script; re-running with the same range reproduces the data (generatedAt differs)."
+  },
+  "pricing": {
+    "priceMicroUsdc": "1200000",
+    "priceUsdc": "1.20",
+    "cap": 4,
+    "currency": "Arc Testnet USDC (no monetary value)"
+  },
+  "provider": {
+    "contact": "https://github.com/techbone/reflow (issues)",
+    "wallet": "pool provider as recorded on-chain"
+  }
+}

@@ -21,6 +21,7 @@
     "noUncheckedSideEffectImports": true,
     "paths": {
       "@/*": ["./src/*"],
+      "@circlefin/compass-chains": ["./scripts/compass-chains-shim.ts"],
       "viem/_types/*": ["./node_modules/viem/_types/*"],
       "/home/runner/_work/stablecoin-kits-private/stablecoin-kits-private/node_modules/viem/_types/accounts/index.d.ts": [
         "./node_modules/viem/_types/accounts/index.d.ts"

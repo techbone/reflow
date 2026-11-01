@@ -1,0 +1,35 @@
+# Dependencies (reinstalled inside the image)
+node_modules/
+.bun/
+
+# Build output (rebuilt inside the image)
+dist/
+
+# Development and test artefacts
+contracts/out/
+contracts/cache/
+.foundry/
+
+# IDE and OS
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Environment files — may contain secrets
+.env
+.env.*
+
+# Docs and CI
+docs/
+.github/
+
+# Test files
+src/tests/
+server/tests/
+contracts/test/
+contracts/test-integration/

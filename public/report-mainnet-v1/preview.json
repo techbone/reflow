@@ -1,0 +1,43 @@
+{
+  "schema": "reflow.report-preview/1",
+  "title": "Arc Mainnet activity report",
+  "version": "1.0.0",
+  "range": {
+    "fromBlock": 28200000,
+    "toBlock": 28219999,
+    "fromUtc": "2026-10-27T21:34:58Z",
+    "toUtc": "2026-10-28T00:23:57Z"
+  },
+  "headline": [
+    {
+      "label": "Blocks",
+      "value": "20,000"
+    },
+    {
+      "label": "Transactions",
+      "value": "46,200"
+    },
+    {
+      "label": "Unique sender addresses",
+      "value": "3,986"
+    },
+    {
+      "label": "Contract creations",
+      "value": "23"
+    },
+    {
+      "label": "USDC transfers (token logs)",
+      "value": "12,585"
+    },
+    {
+      "label": "USDC transferred",
+      "value": "$22,599,646.531613"
+    }
+  ],
+  "inFullReport": [
+    "Hourly series of blocks, transactions, gas used, USDC transfers and volume",
+    "The 15 most-used recipient addresses with transaction counts",
+    "Methodology, limitations and generator hash"
+  ],
+  "notice": "Preview figures are copied exactly from the full report. Real Arc Mainnet data for a fixed historical range; not a forecast."
+}

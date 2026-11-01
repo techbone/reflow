@@ -1,0 +1,43 @@
+{
+  "schema": "reflow.report-preview/1",
+  "title": "Arc Testnet activity report",
+  "version": "1.0.0",
+  "range": {
+    "fromBlock": 68100000,
+    "toBlock": 68199999,
+    "fromUtc": "2026-10-20T01:06:55Z",
+    "toUtc": "2026-10-20T15:15:35Z"
+  },
+  "headline": [
+    {
+      "label": "Blocks",
+      "value": "100,000"
+    },
+    {
+      "label": "Transactions",
+      "value": "314,503"
+    },
+    {
+      "label": "Unique sender addresses",
+      "value": "49,249"
+    },
+    {
+      "label": "Contract creations",
+      "value": "12,780"
+    },
+    {
+      "label": "USDC transfers (token logs)",
+      "value": "237,266"
+    },
+    {
+      "label": "USDC transferred",
+      "value": "$3,072,377.579486"
+    }
+  ],
+  "inFullReport": [
+    "Hourly series of blocks, transactions, gas used, USDC transfers and volume",
+    "The 15 most-used recipient addresses with transaction counts",
+    "Methodology, limitations and generator hash"
+  ],
+  "notice": "Preview figures are copied exactly from the full report. Testnet data; not a proxy for mainnet activity."
+}

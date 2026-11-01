@@ -1,0 +1,51 @@
+# fly.toml — Reflow delivery server on Fly.io
+# https://fly.io/docs/reference/configuration/
+#
+# Replace "reflow-delivery" with your actual Fly.io app name.
+#
+# All secrets (HMAC_SECRET, VITE_REFLOW_CONTRACT, REFLOW_POOL_ID, PUBLIC_ORIGIN,
+# DOMAIN, REFLOW_NETWORK, VITE_REFLOW_FROM_BLOCK …) must be set with
+# `fly secrets set` — never put them in this file.
+#
+# SINGLE INSTANCE ONLY: the nonce store is in-memory.  Running two instances
+# will accept challenges on one machine and attempt session validation on
+# another, causing spurious "unknown nonce" errors.  Use `fly deploy --ha=false`
+# and `fly scale count 1` (see docs/DEPLOY.md).
+#
+# NOTE: this fly.toml has NOT been tested with `fly deploy`. Review and validate
+# it before your first deploy.
+
+app            = "reflow-delivery"
+primary_region = "iad"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT          = "8080"
+  DELIVERY_PORT = "8080"
+  SERVE_STATIC  = "true"
+  TRUSTED_PROXY = "true"
+
+# Single-port HTTPS service with /healthz health check.
+# force_https=true: Fly terminates TLS and forwards plain HTTP internally.
+# auto_stop_machines="off" + min_machines_running=1: keep one instance alive
+# permanently so in-memory nonces are never lost between requests.
+[http_service]
+  internal_port       = 8080
+  force_https         = true
+  auto_stop_machines  = "off"
+  auto_start_machines = true
+  min_machines_running = 1
+
+  [[http_service.checks]]
+    grace_period = "10s"
+    interval     = "15s"
+    method       = "GET"
+    path         = "/healthz"
+    timeout      = "5s"
+
+[[vm]]
+  cpu_kind  = "shared"
+  cpus      = 1
+  memory_mb = 512

@@ -1,0 +1,43 @@
+{
+  "schema": "reflow.resource-manifest/1",
+  "title": "Arc Mainnet activity report",
+  "version": "1.0.0",
+  "description": "Counts and sums of public Arc Mainnet activity over a fixed block range: transactions, senders, contract creations, gas, USDC transfers, hourly series and most-used contracts. Facts only; no success rates, attribution or quality claims.",
+  "source": {
+    "network": "Arc Mainnet",
+    "chainId": 5042,
+    "fromBlock": 28200000,
+    "toBlock": 28219999,
+    "blockCount": 20000,
+    "fromUtc": "2026-10-27T21:34:58Z",
+    "toUtc": "2026-10-28T00:23:57Z"
+  },
+  "generatedAt": "2026-10-28T17:01:01Z",
+  "artifact": {
+    "filename": "arc-activity-report-mainnet-v1.json",
+    "bytes": 4973,
+    "keccak256": "0x202799799200624d68ece590b67f68a62e4739382f8f72965ee577937d201b10",
+    "schema": "reflow.arc-activity-report/1",
+    "delivery": "private; released only to pool members by the delivery service"
+  },
+  "terms": {
+    "filename": "terms.md",
+    "keccak256": "0x2e30e6919339d57066255eb75123d45ede7d1651536e4dcdce848366896dd073",
+    "summary": "Cohort licence: members may use the file for personal or internal review and quote short excerpts with attribution; no redistribution or resale. Real USDC on Arc Mainnet; unaudited code; no refunds; USDC pause/blocklist risk disclosed; independent of Circle and Arc."
+  },
+  "generator": {
+    "script": "report/generate_report_v2.py",
+    "scriptSha256": "424bade2cb6a58a9fd394107f51ee43f81ecec36ba1e29c9a95eaf8dfc63f80c",
+    "note": "Open script; re-running with the same range reproduces the data (generatedAt differs)."
+  },
+  "pricing": {
+    "priceMicroUsdc": "1200000",
+    "priceUsdc": "1.20",
+    "cap": 4,
+    "currency": "USDC on Arc Mainnet (real value)"
+  },
+  "provider": {
+    "contact": "https://github.com/techbone/reflow (issues)",
+    "wallet": "pool provider as recorded on-chain"
+  }
+}

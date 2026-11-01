@@ -52,5 +52,6 @@ run_step() {
 
 run_step lint bun run lint
 run_step typecheck bun run typecheck
+run_step typecheck:server bun run typecheck:server
 
 exit "${fail}"

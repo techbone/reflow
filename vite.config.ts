@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import { DEFAULT_DELIVERY_PORT } from './server/serverPort.js'
 
 export default defineConfig({
   plugins: [react(), nodePolyfills()],
@@ -37,5 +38,12 @@ export default defineConfig({
   server: {
     allowedHosts: true,
     cors: true,
+    proxy: {
+      '/api': {
+        // Read the same env var the delivery server reads, so one setting controls both.
+        target: `http://localhost:${process.env.DELIVERY_PORT ?? DEFAULT_DELIVERY_PORT}`,
+        changeOrigin: true,
+      },
+    },
   },
 })

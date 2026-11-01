@@ -1,0 +1,12 @@
+TEST SHARING TERMS — NO REAL RESOURCE
+
+This is a testnet test pool. There is no real resource behind it.
+
+These terms apply to the Reflow Arc Testnet demonstration pool only:
+- The pool exists solely to verify the Reflow smart contract flow on Arc Testnet.
+- No report, dataset, or other deliverable is attached to this pool.
+- Members acquire no rights to any real content.
+- Rebates and credits are testnet tokens with no monetary value.
+
+By participating in this pool you acknowledge it is a builder test fixture
+on Arc Testnet and contains no real resource.

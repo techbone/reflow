@@ -2,12 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
+/* ─── Arc Light tokens — Reflow variant ─────────────────────────────────── */
+:root {
+  --bg: #faf8f5;
+  --bg-gradient: linear-gradient(180deg, #faf8f5 0%, #fffcf9 55%, #f7f4ef 100%);
+  --surface: rgba(255, 255, 255, 0.75);
+  --surface-strong: rgba(255, 255, 255, 0.92);
+  --surface-muted: #f2f0ec;
+  --ink: #1a1614;
+  --ink-2: #2e2a28;
+  --muted: #6b6460;
+  --subtle: #9a9490;
+  --border: rgba(26, 22, 20, 0.10);
+  --border-strong: rgba(26, 22, 20, 0.28);
+
+  /* Cobalt primary action */
+  --accent: #1a50c8;
+  --accent-hover: #1244b0;
+  --accent-fg: #ffffff;
+
+  /* Mint for settled/claimed rebates */
+  --mint: #1a7a58;
+  --mint-bg: rgba(26, 122, 88, 0.08);
+  --mint-border: rgba(26, 122, 88, 0.22);
+
+  /* Semantic */
+  --success: #1a7a58;
+  --danger: #b82b3a;
+  --warn: #b86a10;
+
+  /* Focus ring */
+  --focus: #7ba8f0;
 }
+
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
   min-height: 100dvh;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg-gradient);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.display { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.03em; }
+.mono    { font-family: 'JetBrains Mono', Menlo, monospace; }
+
+/* Focus ring that respects reduced motion */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Glass surface helpers */
+.glass-card {
+  background: var(--surface);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--border);
+}
+.glass-inner {
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+}
+
+/* Reduced-motion: disable transitions globally */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Sonner toast overrides */
+[data-sonner-toaster] [data-type='error'] {
+  background: var(--surface-strong) !important;
+  border-color: var(--border-strong) !important;
+  color: var(--ink) !important;
 }

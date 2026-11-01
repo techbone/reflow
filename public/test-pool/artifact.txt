@@ -1,0 +1,10 @@
+TEST PLACEHOLDER — NOT THE REAL REPORT
+
+This file is a placeholder for the Reflow Arc Testnet demonstration flow.
+It is NOT the Arc activity report. It has no informational value.
+
+Purpose: provide a fixed, verifiable artifact hash so the test pool can be
+created on Arc Testnet with a known artifactHash = keccak256(this file's bytes).
+
+Do not use this file as documentation, as a report, or as evidence of any
+onchain activity. It is a synthetic fixture for builder testing only.
